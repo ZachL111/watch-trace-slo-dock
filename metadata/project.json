@@ -1,0 +1,32 @@
+{
+  "index": 457,
+  "phase": 2,
+  "batch": 51,
+  "name": "watch-trace-slo-dock",
+  "planned_name": "watch-trace-slo-dock",
+  "language": "Scala",
+  "category": "Observability",
+  "goal": "Package a Scala local lab for slo analysis with layout fixtures, stable geometry snapshots, and documented operating limits.",
+  "repository_url": "https://github.com/ZachL111/watch-trace-slo-dock",
+  "verification_command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1",
+  "model": {
+    "inputs": [
+      "demand",
+      "capacity",
+      "latency",
+      "risk",
+      "weight"
+    ],
+    "threshold": 165,
+    "risk_penalty": 6,
+    "latency_penalty": 2,
+    "weight_bonus": 4,
+    "decision_rule": "accept when score is greater than or equal to threshold, otherwise review"
+  },
+  "quality_gates": [
+    "readme constraint scan",
+    "fixture presence check",
+    "metadata JSON parse",
+    "language verifier"
+  ]
+}
