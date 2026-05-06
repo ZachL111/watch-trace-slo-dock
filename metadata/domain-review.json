@@ -1,0 +1,73 @@
+{
+  "repo": "watch-trace-slo-dock",
+  "language": "Scala",
+  "category": "Observability",
+  "goal": "Package a Scala local lab for slo analysis with layout fixtures, stable geometry snapshots, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "span volume",
+      "latency skew",
+      "signal loss",
+      "incident shape"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "span volume",
+      "signal": 51,
+      "slack": 33,
+      "drag": 28,
+      "confidence": 59,
+      "score": 110,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "latency skew",
+      "signal": 59,
+      "slack": 27,
+      "drag": 12,
+      "confidence": 48,
+      "score": 157,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "signal loss",
+      "signal": 48,
+      "slack": 20,
+      "drag": 8,
+      "confidence": 45,
+      "score": 137,
+      "lane": "watch"
+    },
+    {
+      "name": "recovery",
+      "focus": "incident shape",
+      "signal": 54,
+      "slack": 52,
+      "drag": 15,
+      "confidence": 57,
+      "score": 172,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "span volume",
+      "signal": 62,
+      "slack": 43,
+      "drag": 19,
+      "confidence": 60,
+      "score": 170,
+      "lane": "ship"
+    }
+  ]
+}
